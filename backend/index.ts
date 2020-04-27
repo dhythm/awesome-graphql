@@ -1,8 +1,8 @@
-const express = require('express');
-const cors = require('cors');
-const bodyParser = require('body-parser');
-const { graphqlExpress, graphiqlExpress } = require('apollo-server-express');
-const { makeExecutableSchema } = require('graphql-tools');
+import { graphiqlExpress, graphqlExpress } from 'apollo-server-express';
+import * as bodyParser from 'body-parser';
+import cors from 'cors';
+import express from 'express';
+import { makeExecutableSchema } from 'graphql-tools';
 
 // Some fake data
 const books = [
@@ -34,7 +34,7 @@ const schema = makeExecutableSchema({
 });
 
 // Initialize the app
-const app = express();
+const app: express.Express = express();
 
 app.use(cors({ origin: ['http://localhost', 'http://localhost:3000'] }));
 
