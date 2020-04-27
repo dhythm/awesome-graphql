@@ -1,10 +1,10 @@
 import { useQuery } from '@apollo/react-hooks';
-import { gql } from 'apollo-boost';
+import { DocumentNode, gql } from 'apollo-boost';
 import React from 'react';
 import './App.css';
 import logo from './logo.svg';
 
-const BOOKS_QUERY = gql`
+const GetBooksQuery: DocumentNode = gql`
   {
     books {
       title
@@ -14,7 +14,7 @@ const BOOKS_QUERY = gql`
 `;
 
 const App: React.FunctionComponent = () => {
-  const { loading, error, data } = useQuery(BOOKS_QUERY);
+  const { loading, error, data } = useQuery(GetBooksQuery);
   console.log({ loading, error, data });
   return (
     <div className="App">
