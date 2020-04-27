@@ -1,15 +1,9 @@
-export const resolvers = {
-  Query: { books: () => books },
-};
+import { getBooks } from '@models/books';
 
-// Some fake data
-const books = [
-  {
-    title: "Harry Potter and the Sorcerer's stone",
-    author: 'J.K. Rowling',
+export const resolvers = {
+  Query: {
+    books: () => {
+      return getBooks();
+    },
   },
-  {
-    title: 'Jurassic Park',
-    author: 'Michael Crichton',
-  },
-];
+};
