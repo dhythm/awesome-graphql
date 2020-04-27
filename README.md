@@ -10,6 +10,7 @@ npm install -D typescript @types/node @types/react @types/react-dom @types/jest
 npm install --save apollo-server-express@1 graphql-tools graphql express body-parser
 npm i -D typescript ts-node ts-jest @types/node @types/express @types/cors
 touch tsconfig.json
+npm i -D @babel/core @babel/cli @babel/plugin-proposal-class-properties @babel/preset-env @babel/preset-typescript
 npm i -D @graphql-codegen/cli @graphql-codegen/typescript
 graphql-codegen init
 ```
