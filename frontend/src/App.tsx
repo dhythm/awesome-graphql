@@ -1,8 +1,21 @@
+import { useQuery } from '@apollo/react-hooks';
+import { gql } from 'apollo-boost';
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import logo from './logo.svg';
 
-function App() {
+const BOOKS_QUERY = gql`
+  {
+    books {
+      title
+      author
+    }
+  }
+`;
+
+const App: React.FunctionComponent = () => {
+  const { loading, error, data } = useQuery(BOOKS_QUERY);
+  console.log({ loading, error, data });
   return (
     <div className="App">
       <header className="App-header">
@@ -21,6 +34,6 @@ function App() {
       </header>
     </div>
   );
-}
+};
 
 export default App;
