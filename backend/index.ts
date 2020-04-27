@@ -1,3 +1,4 @@
+import { Schema } from '@api/graphql/schema';
 import { graphiqlExpress, graphqlExpress } from 'apollo-server-express';
 import * as bodyParser from 'body-parser';
 import cors from 'cors';
@@ -17,10 +18,10 @@ const books = [
 ];
 
 // The GraphQL schema in string form
-const typeDefs = `
-  type Query { books: [Book] }
-  type Book { title: String, author: String }
-`;
+// const typeDefs = `
+//   type Query { books: [Book] }
+//   type Book { title: String, author: String }
+// `;
 
 // The resolvers
 const resolvers = {
@@ -29,7 +30,7 @@ const resolvers = {
 
 // Put together a schema
 const schema = makeExecutableSchema({
-  typeDefs,
+  typeDefs: Schema,
   resolvers,
 });
 
