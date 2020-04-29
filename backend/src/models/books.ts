@@ -1,12 +1,8 @@
-export const getBooks = () => books;
+import { MockStorage } from '@storage/mock-storage';
 
-const books = [
-  {
-    title: "Harry Potter and the Sorcerer's stone",
-    author: 'J.K. Rowling',
-  },
-  {
-    title: 'Jurassic Park',
-    author: 'Michael Crichton',
-  },
-];
+export const getBooks = () => {
+  // TODO: move this declaration to api and use DI
+  const mockStorage = new MockStorage();
+
+  return mockStorage.getBooks();
+};
