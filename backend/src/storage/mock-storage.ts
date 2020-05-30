@@ -5,11 +5,24 @@ export class MockStorage {
     return [
       {
         title: "Harry Potter and the Sorcerer's stone",
-        author: 'J.K. Rowling',
+        authorId: '1',
       },
       {
         title: 'Jurassic Park',
-        author: 'Michael Crichton',
+        authorId: '2',
+      },
+    ];
+  }
+
+  getAuthors(): any[] {
+    return [
+      {
+        id: '1',
+        name: 'J.K. Rowling',
+      },
+      {
+        id: '2',
+        name: 'Michael Crichton',
       },
     ];
   }
