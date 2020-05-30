@@ -1,12 +1,16 @@
 import { useQuery } from '@apollo/react-hooks';
 import React from 'react';
 import './App.css';
-import { GetBooksQuery } from './GetBooksQuery';
+import { GetNumberQuery } from './GetNumberQuery';
 import logo from './logo.svg';
 
 const App: React.FunctionComponent = () => {
-  const { loading, error, data } = useQuery(GetBooksQuery);
-  console.log({ loading, error, data });
+  const { loading, error, data } = useQuery(GetNumberQuery, {
+    fetchPolicy: 'cache-first',
+  });
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error</div>;
+
   return (
     <div className="App">
       <header className="App-header">
@@ -22,6 +26,7 @@ const App: React.FunctionComponent = () => {
         >
           Learn React
         </a>
+        <div>{data?.number.value}</div>
       </header>
     </div>
   );

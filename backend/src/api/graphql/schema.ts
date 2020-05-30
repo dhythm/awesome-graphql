@@ -4,6 +4,7 @@ export const Schema = gql`
   type Query {
     books: [Book]
     authors: [Author]
+    number: Number
   }
   type Book {
     title: String
@@ -12,5 +13,9 @@ export const Schema = gql`
   type Author {
     id: ID
     name: String
+  }
+  type Number {
+    id: ID
+    value: Float
   }
 `;
