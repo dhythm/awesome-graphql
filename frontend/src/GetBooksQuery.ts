@@ -2,8 +2,8 @@ import { DocumentNode } from 'apollo-link';
 import gql from 'graphql-tag';
 
 export const GetBooksQuery: DocumentNode = gql`
-  query Books {
-    books {
+  query GetBooks {
+    getBooks {
       title
       author
     }

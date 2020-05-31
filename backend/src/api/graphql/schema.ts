@@ -2,10 +2,11 @@ import gql from 'graphql-tag';
 
 export const Schema = gql`
   type Query {
-    books: [Book]
-    authors: [Author]
-    number(input: NumberInput!): Number
-    numbers: [Number]
+    getBooks: [Book]
+    getAuthors: [Author]
+    getNumber(input: NumberInput!): Number
+    getNumbers: [Number]
+    getComment(input: CommentInput!): Comment
   }
   input NumberInput {
     id: ID
@@ -21,5 +22,13 @@ export const Schema = gql`
   type Number {
     id: ID
     value: Float
+  }
+  input CommentInput {
+    title: String
+  }
+  type Comment {
+    id: ID
+    title: String
+    comment: String
   }
 `;

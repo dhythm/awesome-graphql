@@ -1,20 +1,24 @@
 import { getAuthors } from '@models/authors';
 import { getBooks } from '@models/books';
+import { commentsList } from '@models/comments';
 import { getNumber, getNumbers } from '@models/numbers';
 
 export const resolvers = {
   Query: {
-    books: (_parent, _args, _context, _info) => {
+    getBooks: (_parent, _args, _context, _info) => {
       return getBooks();
     },
-    authors: (_parent, _args, _context, _info) => {
+    getAuthors: (_parent, _args, _context, _info) => {
       return getAuthors();
     },
-    numbers: (_parent, _args, _context, _info) => {
+    getNumbers: (_parent, _args, _context, _info) => {
       return getNumbers();
     },
-    number: (_parent, { input }, _context, _info) => {
+    getNumber: (_parent, { input }, _context, _info) => {
       return getNumber(input);
+    },
+    getComment: (_parent, { input }, _context, _info) => {
+      return commentsList.find((p) => p.title === input.title);
     },
   },
 };

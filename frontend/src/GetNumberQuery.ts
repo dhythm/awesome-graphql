@@ -2,8 +2,8 @@ import { DocumentNode } from 'apollo-link';
 import gql from 'graphql-tag';
 
 export const GetNumberQuery: DocumentNode = gql`
-  query Number($input: NumberInput!) {
-    number(input: $input) {
+  query GetNumber($input: NumberInput!) {
+    getNumber(input: $input) {
       id
       value
     }
@@ -11,8 +11,8 @@ export const GetNumberQuery: DocumentNode = gql`
 `;
 
 export const GetNumbersQuery: DocumentNode = gql`
-  query Numbers {
-    numbers {
+  query GetNumbers {
+    getNumbers {
       id
       value
     }
