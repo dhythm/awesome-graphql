@@ -1,16 +1,16 @@
 import { useQuery } from '@apollo/react-hooks';
 import React from 'react';
 import './App.css';
-import { GetCommentQuery } from './GetCommentQuery';
+import { GetNumberQuery } from './GetNumberQuery';
 import logo from './logo.svg';
 
 const App: React.FunctionComponent = () => {
-  const { loading, error, data: data1 } = useQuery(GetCommentQuery, {
-    variables: { input: { title: 'title 1' } },
+  const { loading, error, data: data1 } = useQuery(GetNumberQuery, {
+    variables: { input: { id: 1 } },
     fetchPolicy: 'cache-first',
   });
-  const { data: data2 } = useQuery(GetCommentQuery, {
-    variables: { input: { title: 'title 1' } },
+  const { data: data2 } = useQuery(GetNumberQuery, {
+    variables: { input: { id: 1 } },
     fetchPolicy: 'cache-only',
   });
 
@@ -35,7 +35,10 @@ const App: React.FunctionComponent = () => {
           Learn React
         </a>
         <div>
-          {data1?.getComment?.id} {data1?.getComment?.comment}
+          {data1?.getNumber?.id} {data1?.getNumber?.value}
+        </div>
+        <div>
+          {data2?.getNumber?.id} {data2?.getNumber?.value}
         </div>
       </header>
     </div>
