@@ -6,6 +6,7 @@ import logo from './logo.svg';
 
 const App: React.FunctionComponent = () => {
   const { loading, error, data } = useQuery(GetNumberQuery, {
+    variables: { input: { id: 1 } },
     fetchPolicy: 'cache-first',
   });
   if (loading) return <div>Loading...</div>;
@@ -26,7 +27,7 @@ const App: React.FunctionComponent = () => {
         >
           Learn React
         </a>
-        <div>{data?.number.value}</div>
+        <div>{data?.number?.value}</div>
       </header>
     </div>
   );

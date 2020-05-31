@@ -4,7 +4,11 @@ export const Schema = gql`
   type Query {
     books: [Book]
     authors: [Author]
-    number: Number
+    number(input: NumberInput!): Number
+    numbers: [Number]
+  }
+  input NumberInput {
+    id: ID
   }
   type Book {
     title: String

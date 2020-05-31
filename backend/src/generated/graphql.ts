@@ -14,6 +14,7 @@ export type Query = {
   books?: Maybe<Array<Maybe<Book>>>;
   authors?: Maybe<Array<Maybe<Author>>>;
   number?: Maybe<Number>;
+  numbers?: Maybe<Array<Maybe<Number>>>;
 };
 
 export type Book = {
@@ -133,6 +134,7 @@ export type QueryResolvers<ContextType = any, ParentType extends ResolversParent
   books?: Resolver<Maybe<Array<Maybe<ResolversTypes['Book']>>>, ParentType, ContextType>,
   authors?: Resolver<Maybe<Array<Maybe<ResolversTypes['Author']>>>, ParentType, ContextType>,
   number?: Resolver<Maybe<ResolversTypes['Number']>, ParentType, ContextType>,
+  numbers?: Resolver<Maybe<Array<Maybe<ResolversTypes['Number']>>>, ParentType, ContextType>,
 };
 
 export type BookResolvers<ContextType = any, ParentType extends ResolversParentTypes['Book'] = ResolversParentTypes['Book']> = {
